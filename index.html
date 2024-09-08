@@ -39,12 +39,16 @@
         }
         
         .memoji-button:hover {background-color: #3e8e41}
-
         .memoji-button:active {
           background-color: #3e8e41;
           box-shadow: 0 5px #666;
           transform: translateY(4px);
         } 
+
+    .center {
+     margin: auto;
+     width: 50%;
+    }
     </style>
   
 </head>
@@ -56,11 +60,6 @@
     <button class="memoji-button" id="greenButton">Green</button>
     <button class="memoji-button" id="redButton">Red</button>
     <button class="memoji-button" id="purpleButton">Purple</button>
-
-    .center {
-     margin: auto;
-     width: 50%;
-    }
 </div>
 <script>
     document.getElementById('pinkButton').addEventListener('click', function() {
