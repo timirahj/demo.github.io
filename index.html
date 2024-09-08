@@ -44,15 +44,22 @@
           box-shadow: 0 5px #666;
           transform: translateY(4px);
         } 
-
-    .center {
-     margin: auto;
-     width: 50%;
-    }
     </style>
-  
+    
 </head>
-<body>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Flexbox container to vertically align items */
+        .container {
+            text-align: center;
+        }
+
     <h1>Pick your favorite hair color!</h1>
 <div>
     <button class="memoji-button" id="pinkButton">Pink</button>
