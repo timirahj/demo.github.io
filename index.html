@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memoji Selector</title>
+    <style>
+        /* Basic styling for buttons */
+        .memoji-button {
+            font-size: 16px;
+            padding: 10px 20px;
+            margin: 5px;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        #pinkButton {
+            background-color: pink;
+            color: black;
+        }
+
+        #blondeButton {
+            background-color: #F5DEB3;
+            color: black;
+        }
+
+        #greenButton {
+            background-color: green;
+        }
+
+        #redButton {
+            background-color: red;
+        }
+
+        #purpleButton {
+            background-color: purple;
+        }
+        
+        .memoji-button:hover {background-color: #3e8e41}
+
+        .memoji-button:active {
+          background-color: #3e8e41;
+          box-shadow: 0 5px #666;
+          transform: translateY(4px);
+        } 
+    </style>
+  
+</head>
+<body>
+    <h1>Pick a Memoji!</h1>
+<div>
+    <button class="memoji-button" id="pinkButton">Pink</button>
+    <button class="memoji-button" id="blondeButton">Blonde</button>
+    <button class="memoji-button" id="greenButton">Green</button>
+    <button class="memoji-button" id="redButton">Red</button>
+    <button class="memoji-button" id="purpleButton">Purple</button>
+</div>
+<script>
+    document.getElementById('pinkButton').addEventListener('click', function() {
+        submitVote('pink');
+    });
+    
+    document.getElementById('blondeButton').addEventListener('click', function() {
+        submitVote('blonde');
+    });
+    
+    document.getElementById('greenButton').addEventListener('click', function() {
+        submitVote('green');
+    });
+    
+    document.getElementById('redButton').addEventListener('click', function() {
+        submitVote('red');
+    });
+    
+    document.getElementById('purpleButton').addEventListener('click', function() {
+        submitVote('purple');
+    });
+    function submitVote(memojiID) {
+        fetch('http://127.0.0.1:8080/api/vote/' + memojiID, {
+            method: 'POST'
+        }).then(response => {
+            if (response.ok) {
+                console.log('Vote successfully submitted for Memoji ID: ' + memojiID);
+            } else {
+                console.log('Failed to submit vote');
+            }
+        }).catch(error => {
+            console.error('Error:', error)
+        });
+    }
+</script>
+</body>
+</html>
